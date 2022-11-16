@@ -13,22 +13,166 @@
 }
 
 :root {
-  --black: #061021;
-  --darkGray: #262626;
-  --orange: #fc481c;
-  --yellow: #ffd100;
-  --brown: #ded1c1;
-  --blue: #5562ff;
+  --primary: #ffd100;
+  --secondary: #262626;
 }
 
 body {
   font-family: "Poppins", sans-serif !important;
-  background-color: var(--darkGray);
-  color: var(--yellow);
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
 html {
   font-size: 62.5%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+/* header */
+.heading-1 {
+  font-size: 5rem;
+}
+/*  */
+
+/* keyboard */
+#keyboard {
+  width: 50%;
+  position: fixed;
+  /* z-index: 100; */
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.keyboard-letter {
+  width: 7rem;
+  height: 7rem;
+  line-height: 7rem;
+  font-size: 2.5rem;
+  color: whitesmoke;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--primary);
+}
+.keyboard-letter:hover {
+  background-color: #ebc6243f;
+}
+.disabled {
+  background-color: #cccccc48;
+  color: #979797;
+}
+.disabled:hover {
+  background-color: #cccccc48;
+}
+.succes-button {
+  border: 0.2rem solid green;
+}
+.lost-button {
+  border: 0.2rem solid red;
+}
+/*  */
+
+/* password */
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10rem;
+}
+#password {
+  font-size: 5rem;
+}
+/*  */
+
+/* modal */
+#modal {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #262626b9;
+}
+.modal-content {
+  width: 50%;
+  font-size: 3rem;
+  text-align: center;
+  border-radius: 12px;
+  padding: 2rem;
+  background-color: rgb(92, 92, 92);
+}
+.win {
+  box-shadow: 0px 0px 24px -8px rgb(116, 255, 116);
+}
+.lost {
+  box-shadow: 0px 0px 24px -8px rgb(255, 90, 90);
+}
+.reset-button {
+  border: 1px solid rgb(0, 0, 0);
+  font-size: 2.5rem;
+  width: 20%;
+  color: rgb(7, 7, 7);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border-radius: 12px;
+  box-shadow: 0px 0px 24px -17px rgba(66, 68, 90, 1);
+}
+.reset-button:hover {
+  background-color: #ebc6243f;
+}
+/*  */
+
+@media screen and (max-width: 900px) {
+  .heading-1 {
+    font-size: 3rem;
+  }
+  #keyboard {
+    width: 90%;
+  }
+  .keyboard-letter {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
+  }
+  .password-container {
+    flex-direction: column;
+  }
+  #password {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .modal-content {
+    width: 90%;
+    font-size: 2rem;
+  }
+  .reset-button {
+    font-size: 1.8rem;
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #keyboard {
+    width: 100%;
+  }
+  #password {
+    font-size: 2.5rem;
+  }
+  .keyboard-letter {
+    width: 4rem;
+    height: 4rem;
+    line-height: 3rem;
+    font-size: 1.7rem;
+  }
 }
