@@ -16,6 +16,6 @@ Mentoring second task.
 
 ### Mobile
 
-<img src="readme_assets\task_2_MOBILE.png" width='20%' />  
+<img src="readme_assets\task_2_mobile.png" width='20%' />  
 
 ## :checkered_flag:GETTING STARTED
