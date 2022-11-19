@@ -1,3 +1,4 @@
+"use strict";
 const alphabet = [
   "a",
   "b",
@@ -25,14 +26,12 @@ const alphabet = [
   "y",
   "z",
 ];
-
 const passwords = ["krystian", "neoteric task", "mentoring"];
-
 const password =
   passwords[Math.floor(Math.random() * passwords.length)].toLowerCase();
 let hiddenPassword = "";
 let defeatCounter = 0;
-
+let i;
 // password hiding
 const hidePassword = () => {
   for (i = 0; i < password.length; i++) {
@@ -43,17 +42,14 @@ const hidePassword = () => {
     }
   }
 };
-
 //function to send hidden password to HTML
 const writePassword = () => {
   document.getElementById("password").innerHTML = hiddenPassword;
 };
-
 //initial function
 const initialFunction = () => {
   let listItems = "";
-
-  alphabet.map((letter, i) => {
+  alphabet.map((letter) => {
     return (listItems =
       listItems +
       "<li><button class='keyboard-letter' id=keyboard-letter-" +
@@ -64,16 +60,18 @@ const initialFunction = () => {
       letter +
       "</button></li>");
   });
-
   document.getElementById("keyboard").innerHTML = listItems;
   document.getElementById("image-container").innerHTML =
     '<img class="img-fluid" src="./images/s0.jpg" alt="wisielec"/>';
   hidePassword();
   writePassword();
 };
-
-window.onload = initialFunction();
-
+//initial state
+document.onreadystatechange = () => {
+  if (document.readyState === "complete") {
+    initialFunction();
+  }
+};
 const showLetter = (letter, index) => {
   index.map((i) => {
     return (hiddenPassword =
@@ -82,21 +80,17 @@ const showLetter = (letter, index) => {
       hiddenPassword.substring(i + 1));
   });
   writePassword();
-  console.log(password === hiddenPassword);
 };
-
 const checkLetter = (letter) => {
   const button = document.getElementById("keyboard-letter-" + letter + "");
   let arrayOfIndexs = [];
   let hit = false;
-
   for (i = 0; i < password.length; i++) {
     if (letter === password[i]) {
       arrayOfIndexs.push(i);
       hit = true;
     }
   }
-
   if (hit) {
     showLetter(letter, arrayOfIndexs);
     button.classList.add("succes-button");
@@ -104,15 +98,12 @@ const checkLetter = (letter) => {
     defeatCounter++;
     button.classList.add("lost-button");
   }
-
   button.disabled = true;
   button.classList.add("disabled");
-
   document.getElementById("image-container").innerHTML =
     '<img class="img-fluid" src="./images/s' +
     defeatCounter +
     '.jpg" alt="wisielec"/>';
-
   //win
   if (password === hiddenPassword) {
     document.getElementById("modal-hook").innerHTML =
