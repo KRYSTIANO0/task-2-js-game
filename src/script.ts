@@ -33,7 +33,7 @@ let defeatCounter = 0;
 let i: number;
 
 // password hiding
-const hidePassword = () => {
+const hidePassword = (): void => {
   for (i = 0; i < password.length; i++) {
     if (password.charAt(i) === " ") {
       hiddenPassword += " ";
@@ -44,12 +44,12 @@ const hidePassword = () => {
 };
 
 //function to send hidden password to HTML
-const writePassword = () => {
+const writePassword = (): void => {
   document.getElementById("password")!.innerHTML = hiddenPassword;
 };
 
 //initial function
-const initialFunction = () => {
+const initialFunction = (): void => {
   let listItems = "";
 
   alphabet.map((letter) => {
@@ -72,13 +72,13 @@ const initialFunction = () => {
 };
 
 //initial state
-document.onreadystatechange = () => {
+document.onreadystatechange = (): void => {
   if (document.readyState === "complete") {
     initialFunction();
   }
 };
 
-const showLetter = (letter: string, index: number[]) => {
+const showLetter = (letter: string, index: number[]): void => {
   index.map((i) => {
     return (hiddenPassword =
       hiddenPassword.substring(0, i) +
@@ -88,11 +88,11 @@ const showLetter = (letter: string, index: number[]) => {
   writePassword();
 };
 
-const checkLetter = (letter: string) => {
+const checkLetter = (letter: string): void => {
   const button = document.getElementById(
     "keyboard-letter-" + letter + ""
   )! as HTMLButtonElement;
-  let arrayOfIndexs = [];
+  let arrayOfIndexs: number[] = [];
   let hit = false;
 
   for (i = 0; i < password.length; i++) {
